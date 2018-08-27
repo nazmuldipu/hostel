@@ -1,3 +1,11 @@
-<p>
-  index works!
-</p>
+<top-header id="home"></top-header>
+<navbar></navbar>
+<pic-dialog></pic-dialog>
+<feature id="feature"></feature>
+<application-form (create)="onCreate($event)" id="application"></application-form>
+<contact id="contact"></contact>
+<footer></footer>
+
+<a class="float" (click)="jumpToId('home')">
+    <i class="fa fa-chevron-up my-float"></i>
+</a>

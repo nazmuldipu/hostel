@@ -1,0 +1,27 @@
+.company {
+  padding: 28px 0;
+  &_logo {
+    height: 54px;
+    width: auto;
+  }
+  &_name {
+    font-family: 'SolaimanLipi', 'Siyamrupali', Arial, sans-serif !important;
+    font-size: 30px;
+    padding-left: 15px;
+  }
+  &_icon {
+    font-size: 18px;
+    color: yellowgreen;
+    padding-right: 10px;
+  }
+  &_divider {
+    color: green;
+    padding: 0 10px;
+  }
+  &_label {
+    font-size: 18px;
+  }
+  & button {
+    margin: 0 10px;
+  }
+}

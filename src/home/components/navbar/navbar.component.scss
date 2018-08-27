@@ -1,0 +1,19 @@
+.navbar {
+  padding: 0;
+}
+.nav-link {
+  color: white !important;
+}
+.nav-item {
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 7px;
+  //   border-top: 3px solid transparent;
+  &:hover {
+    background-color: yellowgreen;
+    // border-top: 3px solid rgb(51, 65, 23);
+  }
+  & a {
+    cursor: pointer;
+  }
+}

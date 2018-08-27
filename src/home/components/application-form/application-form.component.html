@@ -1,0 +1,125 @@
+<div class="container raised" (mouseleave)="mouseoverErrors=false">
+  <!-- {{form.value | json}} -->
+  <div class="row">
+    <div class="col-12 form-headline">সিটের জন্য আবেদন</div>
+  </div>
+  <form class="m-4" [formGroup]="form" (ngSubmit)="save()">
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-1 pt-0">লিঙ্গ</legend>
+        <div class="col-sm-11">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender" id="maleRadio" value="male">
+            <label class="form-check-label" for="maleRadio">
+              <i class="fa fa-male fa-2x" aria-hidden="true"></i>
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender" id="femaleRadio" value="female">
+            <label class="form-check-label" for="femaleRadio">
+              <i class="fa fa-female fa-2x" aria-hidden="true"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+      <small class="form-text text-danger" *ngIf="(form.controls.gender.invalid && form.controls.name.dirty) || (form.controls.gender.invalid && mouseoverErrors)">আপনার নাম জানা প্রয়োজন</small>
+    </fieldset>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">নাম</label>
+        <input class="form-control" id="name" formControlName="name">
+        <small class="form-text text-danger" *ngIf="form.controls.name.invalid && (form.controls.name.dirty || mouseoverErrors)">আপনার নাম জানা প্রয়োজন</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="phone">ফোন নম্বর</label>
+        <!-- <input class="form-control" id="phone" formControlName="phone"> -->
+        <input class="form-control" id="phone" maxlength="11" formControlName="phone">
+        <small class="text-danger" *ngIf="form.controls['phone'].errors && (!form.controls['phone'].pristine || mouseoverErrors)">
+          <div [hidden]="!form.controls['phone'].errors.required">ফোন নম্বর বাধ্যতামূলক</div>
+          <div [hidden]="!form.controls['phone'].errors.pattern">ফোন নম্বর ফরমেট 01912239643</div>
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="fathersName">পিতার নাম</label>
+        <input class="form-control" id="fathersName" formControlName="fathersName">
+        <small class="form-text text-danger" *ngIf="form.controls.fathersName.invalid && (form.controls.fathersName.dirty || mouseoverErrors)">আপনার পিতার নাম জানা প্রয়োজন</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="academyName">কলেজ/বিশ্ববিদ্যালয়ের নাম</label>
+        <input class="form-control" id="academyName" formControlName="academyName">
+        <small class="form-text text-danger" *ngIf="form.controls.academyName.invalid && (form.controls.academyName.dirty || mouseoverErrors)">আপনার শিক্ষা প্রতিষ্ঠানের নাম জানা প্রয়োজন</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group  col-md-6">
+        <label for="permanentAddress">স্থায়ী ঠিকানা</label>
+        <textarea class="form-control" rows="3" maxlength="255" formControlName="permanentAddress"></textarea>
+        <small class="text-info pull-right" *ngIf="form.controls.permanentAddress.value?.length > 0">{{form.controls.permanentAddress.value?.length}}/255</small>
+        <small class="form-text text-danger" *ngIf="form.controls.permanentAddress.invalid && (form.controls.permanentAddress.dirty || mouseoverErrors)">আপনার স্থায়ী ঠিকানা জানা প্রয়োজন</small>
+      </div>
+      <div class="form-group  col-md-6">
+        <label for="academyAddress">কলেজ/বিশ্ববিদ্যালয়ের ঠিকানা</label>
+        <textarea class="form-control" rows="3" maxlength="255" formControlName="academyAddress"></textarea>
+        <small class="text-info pull-right" *ngIf="form.controls.academyAddress.value?.length > 0">{{form.controls.academyAddress.value?.length}}/255</small>
+        <small class="form-text text-danger" *ngIf="form.controls.academyAddress.invalid && (form.controls.academyAddress.dirty || mouseoverErrors)">আপনার কলেজ/বিশ্ববিদ্যালয়ের ঠিকানা জানা প্রয়োজন</small>
+      </div>
+    </div>
+
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">আপনার বাজেট</legend>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="budget" id="maleRadio" value="6000-7000">
+            <label class="form-check-label" for="maleRadio">
+              ৬,০০০-৭,০০০টাকা
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="budget" id="femaleRadio" value="7000-8000">
+            <label class="form-check-label" for="femaleRadio">
+              ৭,০০০-৮,০০০টাকা
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="budget" id="femaleRadio" value="8000-10000">
+            <label class="form-check-label" for="femaleRadio">
+              ৮,০০০-১০,০০০টাকা
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="budget" id="femaleRadio" value="10000+">
+            <label class="form-check-label" for="femaleRadio">
+              ১০,০০০টাকার উপরে
+            </label>
+          </div>
+        </div>
+      </div>
+      <small class="form-text text-danger" *ngIf="(form.controls.budget.invalid && form.controls.budget.dirty) || (form.controls.budget.invalid && mouseoverErrors)">আপনার বাজেট জানা প্রয়োজন</small>
+    </fieldset>
+
+    <div class="form-row">
+      <div class="form-group  col-md-6">
+        <label for="expectedEntryDate">কবে নাগাদ উঠতে চান?</label>
+        <input type="date" class="form-control" id="expectedEntryDate" formControlName="expectedEntryDate">
+        <small class="form-text text-danger" *ngIf="form.controls.expectedEntryDate.invalid && (form.controls.expectedEntryDate.dirty || mouseoverErrors)">আপনার কবে নাগাদ উঠতে চান, তা জানা প্রয়োজন</small>
+      </div>
+    </div>
+
+    <div class="form-row mt-3">
+      <span (mouseenter)="mouseoverErrors=true">
+        <button type="submit" class="btn btn-sm btn-success m-3 raised" [disabled]="form.invalid"> আবেদন সেভ করুন </button>
+      </span>
+    </div>
+
+
+  </form>
+
+</div>
