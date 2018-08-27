@@ -397,10 +397,10 @@ angularfire2@5.0.0-rc.12
 MIT
 MIT
 
-@angular/forms@6.1.4
+@angular/core@6.1.4
 MIT
 MIT
 
-@angular/core@6.1.4
+@angular/forms@6.1.4
 MIT
 MIT
